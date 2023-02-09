@@ -13,11 +13,11 @@ import (
 func TestTerraformAzureCosmosDBExample(t *testing.T) {
 	t.Parallel()
 
-	subscriptionID := "71ae4048-2e46-4255-8eca-c47663aa8f0c"
+	subscriptionID := ""
 	uniquePostfix := random.Random(10000, 99999)
 	throughput := 400
 
-	// website::tag::1:: Configure Terraform setting up a path to Terraform code.
+	// Configure Terraform setting up a path to Terraform code.
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: "../",
@@ -27,17 +27,17 @@ func TestTerraformAzureCosmosDBExample(t *testing.T) {
 		},
 	}
 
-	// website::tag::4:: At the end of the test, run `terraform destroy` to clean up any resources that were created
+	// At the end of the test, run `terraform destroy` to clean up any resources that were created
 	defer terraform.Destroy(t, terraformOptions)
 
-	// website::tag::2:: Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
+	// Run `terraform init` and `terraform apply`. Fail the test if there are any errors.
 	terraform.InitAndApply(t, terraformOptions)
 
-	// website::tag::3:: Run `terraform output` to get the values of output variables
+	// Run `terraform output` to get the values of output variables
 	resourceGroupName := terraform.Output(t, terraformOptions, "resource_group_name")
 	accountName := terraform.Output(t, terraformOptions, "account_name")
 
-	// website::tag::4:: Get CosmosDB details and assert them against the terraform output
+	// Get CosmosDB details and assert them against the terraform output
 	// NOTE: the value of subscriptionID can be left blank, it will be replaced by the value
 	//       of the environment variable ARM_SUBSCRIPTION_ID
 
