@@ -13,7 +13,7 @@ import (
 func TestTerraformAzureVmExample(t *testing.T) {
 	t.Parallel()
 
-	subscriptionID := "71ae4048-2e46-4255-8eca-c47663aa8f0c"
+	subscriptionID := ""
 	uniquePostfix := random.UniqueId()
 
 	// Configure Terraform setting up a path to Terraform code.
