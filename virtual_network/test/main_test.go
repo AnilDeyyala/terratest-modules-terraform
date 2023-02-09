@@ -15,7 +15,7 @@ func TestTerraformAzureNetwork(t *testing.T) {
 	t.Parallel()
 
 	// Create values for Terraform
-	subscriptionID := "71ae4048-2e46-4255-8eca-c47663aa8f0c" // subscriptionID is overridden by the environment variable "ARM_SUBSCRIPTION_ID"
+	subscriptionID := "" // subscriptionID is overridden by the environment variable "ARM_SUBSCRIPTION_ID"
 	uniquePostfix := random.UniqueId()
 	expectedLocation := "East US"
 	expectedSubnetRange := "10.0.20.0/24"
