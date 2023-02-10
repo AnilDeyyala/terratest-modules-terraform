@@ -39,15 +39,7 @@ To run the tests in the test folder, follow these steps:
 cd module_name/test
 ```
 
-
-2. Initialize the Go module:
-```bash
-go mod init test
-go mod tidy
-```
-
-
-3. Run the tests:
+2. Run the tests:
 ```bash
 go test -v
 ```
